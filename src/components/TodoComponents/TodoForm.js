@@ -1,59 +1,57 @@
 import React from 'react';
+import styled from 'styled-components';
 
 
 const TodoForm = props => {
     return (
+        
         <form>
-            <input
+            <FormContainer>
+            <AddItem
                 onChange={props.handlechangeItem}
                 type='text'
                 name='todo'
                 value={props.value}
                 // placeholder= ''
             />
-            <button onClick={props.handleaddItem}>Add New Task</button>
-            <button onClick={props.handleclearCompleted}>Clear Completed</button>
+            <AddButton onClick={props.handleaddItem}>Add New Task</AddButton>
+            <ClearButton onClick={props.handleclearCompleted}>Clear Completed</ClearButton>
+            </FormContainer>
         </form>
+        
     )
 }
 
 export default TodoForm;
 
+const FormContainer = styled.div`
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+`;
 
+const AddItem = styled.input`
+    width: 300px;
+    padding: 3% 0;
+`;
 
-// class TodoForm extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             task: ''
-//         };
-//     }
+const AddButton = styled.button`
+    width: 200px;
+    padding: 2% 4%;
+    margin: 2% 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #AED1E6;
+    color: #36413E;
+`;
 
-//     handleChanges = e => {
-//         this.setState({
-//             [e.target.name]: e.target.vlaue
-//         });
-//     };
-
-//     submitItem = e => {
-//         e.preventDefault();
-//         this.props.addItem(this.state.item);
-//     }
-
-//     render() {
-//         return(
-//             <form onSubmit={this.submitItem}>
-//                 <input
-//                     type='text'
-//                     value={this.state.item}
-//                     name='task'
-//                     onChange={this.handleChanges}
-//                     />
-//                 <button>Add</button>
-//             </form>
-//         )
-//     }
-// }
-
-// export default TodoForm;
+const ClearButton = styled.button`
+    width: 200px;
+    padding: 2% 4%;
+    margin: 2% 0;
+    font-size: 1.2rem;
+    background-color: lightgrey;
+    color: black;
+`;
 
