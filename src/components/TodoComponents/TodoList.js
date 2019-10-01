@@ -22,7 +22,12 @@ const TodoList = props => {
 export default TodoList;
 
 const TodoListContainer = styled.div`
-    font-size: 1.8rem;
+background: white;
+width: 80%;
+margin-top: 10px;
+padding: 5px 20px;
+border-radius: 5px;
+    font-size: 1.6rem;
     margin: 1% 2%;
     display: flex;
     flex-direction: column;
