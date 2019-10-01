@@ -2,25 +2,45 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const TodoForm = props => {
-    return (
+class TodoForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            todo: ''
+        }
+    }
+
+    handleChangeItem = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.state.todo !== "" && this.props.addTodo(this.state.todo);
+        this.setState({ todo: '' })
+    }
+
+    render(){
+        return (
         
-        <form>
-            <FormContainer>
-            <AddItem
-                onChange={props.handlechangeItem}
-                type='text'
-                name='todo'
-                value={props.value}
-                // placeholder= ''
-            />
-            <AddButton onClick={props.handleaddItem}>Add New Task</AddButton>
-            <ClearButton onClick={props.handleclearCompleted}>Clear Completed</ClearButton>
-            </FormContainer>
-        </form>
-        
-    )
+            <form onSubmit={this.handleSubmit}>
+                <FormContainer>
+                <AddItem
+                    onChange={this.handleChangeItem}
+                    type='text'
+                    name='todo'
+                    value={this.state.todo}
+                    // placeholder= ''
+                />
+                <AddButton onClick={this.props.handleaddItem}>Add New Task</AddButton>
+                <ClearButton onClick={this.props.handleclearCompleted}>Clear Completed</ClearButton>
+                </FormContainer>
+            </form>
+            
+        )
+    }
 }
+    
 
 export default TodoForm;
 
