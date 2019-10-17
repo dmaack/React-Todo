@@ -2,44 +2,44 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-class TodoForm extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            todo: ''
-        }
-    }
+const TodoForm = props => {
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         todo: ''
+    //     }
+    // }
 
-    handleChangeItem = e => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
+    // handleChange = e => {
+    //     this.setState({ [e.target.name]: e.target.value })
+    // }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.state.todo !== "" && this.props.addTodo(this.state.todo);
-        this.setState({ todo: '' })
-    }
+    // handleSubmit = e => {
+    //     e.preventDefault();
+    //     this.props.addItem(this.state.todo);
+    //     this.setState({ todo: '' })
+    // }
 
-    render(){
+    // render(){
         return (
         
-            <form onSubmit={this.handleSubmit}>
+            <form >
                 <FormContainer>
                 <AddItem
-                    onChange={this.handleChangeItem}
+                    onChange={props.handlechangeItem}
                     type='text'
                     name='todo'
-                    value={this.state.todo}
+                    value={props.value}
                     // placeholder= ''
                 />
-                <AddButton onClick={this.props.handleaddItem}>Add New Task</AddButton>
-                <ClearButton onClick={this.props.handleclearCompleted}>Clear Completed</ClearButton>
+                <AddButton onClick={props.handleaddItem}>Add New Task</AddButton>
+                <ClearButton onClick={props.handleclearCompleted}>Clear Completed</ClearButton>
                 </FormContainer>
             </form>
             
         )
     }
-}
+// }
     
 
 export default TodoForm;

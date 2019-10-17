@@ -1,18 +1,18 @@
 import React from 'react';
 
 
-class Task extends React.Component {
-    render() {
+const Todo = props => {
+    
         return (
             <div
-                style={this.props.todo.completed ? {textDecoration: 'line-through'} : null}
-                onClick={() => this.props.toggleItem(this.props.todo.id)}
+                style={props.todo.completed ? {textDecoration: 'line-through'} : null}
+                onClick={() => props.toggleItem(props.todo.id)}
             >
-                <p>{this.props.todo.task}</p>
+                <p>{props.todo.task}</p>
             </div>
         )
-    }
+    
     }
 
 
-export default Task;
+export default Todo;

@@ -4,15 +4,15 @@ import styled from 'styled-components';
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 
-class TodoList extends React.Component {
-    render(){
+const TodoList = props => {
+    // render(){
         return (
             <TodoListContainer>
-                {!this.props.todos.map(todo => (
+                {props.todos.map(todo => (
                     <Todo 
                         key={todo.id} 
                         todo={todo} 
-                        toggleItem={this.props.toggleItem} 
+                        toggleItem={props.toggleItem} 
                     />
                 ))}
                 {/* <button className='completed-btn' onClick={props.clearCompleted}>Completed</button> */}
@@ -20,7 +20,7 @@ class TodoList extends React.Component {
         )
     }
     
-    }
+    // }
 
 export default TodoList;
 
